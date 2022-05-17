@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+main {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+} 
+
+.sablon {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:10px;
+}
+
+.kerdes{
+    background-color: brown;
+}
+
+button{
+    border: 1px solid gray;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .sablon {
+        width: 100%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+  }
