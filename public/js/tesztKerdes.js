@@ -16,25 +16,24 @@ class TesztKerdes{
             this.node.children(".v3").on("click", ()=>{ this.KattintasTrigger(); });
             this.node.children(".v4").on("click", ()=>{ this.KattintasTrigger(); });
         }else{
-            this.node.children(".v1").on("click", ()=>{alert("Erre már válaszoltál")});
-            this.node.children(".v2").on("click", ()=>{alert("Erre már válaszoltál")});
-            this.node.children(".v3").on("click", ()=>{alert("Erre már válaszoltál")});
-            this.node.children(".v4").on("click", ()=>{alert("Erre már válaszoltál")});
+            this.node.children(".v1").on("click", ()=>{alert("Erre már válaszoltál!")});
+            this.node.children(".v2").on("click", ()=>{alert("Erre már válaszoltál!")});
+            this.node.children(".v3").on("click", ()=>{alert("Erre már válaszoltál!")});
+            this.node.children(".v4").on("click", ()=>{alert("Erre már válaszoltál!")});
         }
         
     }
 
-    setAdat(){
+    setAdat(ertek){
         this.kerdes.html(ertek.kerdes);
-        this.v1.value(ertek.v1);
-        this.v2.value(ertek.v2);
-        this.v3.value(ertek.v3);
-        this.v4.value(ertek.v4);
+        this.v1.html(ertek.v1);
+        this.v2.html(ertek.v2);
+        this.v3.html(ertek.v3);
+        this.v4.html(ertek.v4);
     }
 
     KattintasTrigger(){
         let esemeny = new CustomEvent("valtoz", { detail: this.adat });
         window.dispatchEvent(esemeny);
-        this.node.css("background-color:blue");
     }
 }

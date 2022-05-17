@@ -16,7 +16,12 @@ main {
 }
 
 .kerdes{
+    border-radius: 10px;
     background-color: brown;
+    text-align: left;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 button{
@@ -24,6 +29,7 @@ button{
     width: 100%;
     margin-top: 10px;
     text-align: center;
+    border-radius: 10px;
 }
 
 @media only screen and (max-width: 600px) {

@@ -1,29 +1,31 @@
 $(function(){
 
-    const kategoriak = [];
+    const kategoriaktomb = [];
     const kategAPI = "/kategoria";
     const token = $('meta[name="csrf-token"]').attr('content');
     const myAjax = new MyAjaxTokenes(token);
     const tomb = [];
 
-    myAjax.getAjax(kategAPI, kategoriak, kategoriak);
-    
+    myAjax.getAjax(kategAPI, kategoriaktomb, kategoriak);
+
+    let i = 0;
+
     function kategoriak(){
-        for (let index = 0; index < kategoriak.length; index++) {
-            $("select").append("<option>"+ kategoriak[i] +"</option>")
+        for (i = 0; i < kategoriaktomb.length; i++) {
+            $("select").append("<option>"+ kategoriaktomb[i].kategorianev +"</option>")
         }
+        
     }
 
-    for (let index = 0; index < kategoriak.length; index++) {
-        let apiVegpont = "/teszt/kategoria/"+kategoriak[index]+"";
 
-        if(kategoriak[index]===0){
-            let apiVegpont = "/teszt/kategoria/1";
-            myAjax.getAjax(apiVegpont, tomb, adatokMegjelenites);
-        }else{
-            myAjax.getAjax(apiVegpont, tomb, adatokMegjelenites);
-        }        
-    }
+    let apiVegpont = "/teszt/kategoria/"+kategoriaktomb[i]+"";
+    if(kategoriaktomb[i]===0){
+        let apiVegpont = "/teszt/kategoria/1";
+        myAjax.getAjax(apiVegpont, tomb, adatokMegjelenites);
+    }else{
+        myAjax.getAjax(apiVegpont, tomb, adatokMegjelenites);
+    }        
+    
 
     function adatokMegjelenites(){
         const szuloElem = $("#szulo");   
@@ -39,12 +41,10 @@ $(function(){
     
     $(window).on("valtoz", (esemeny) => {
         let adat = esemeny.detail;
-        if(adat===adat.helyes){
+        if(adat === adat.helyes){
             this.node.css("background-color:green;");
         }else{
             this.node.css("background-color:red;");
         }
     });
-
-    
 });
